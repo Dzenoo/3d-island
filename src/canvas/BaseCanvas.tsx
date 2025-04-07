@@ -2,8 +2,9 @@ import { Canvas } from "@react-three/fiber";
 
 import CameraRig from "./CameraRig";
 import Sky from "./3d/Sky";
-import Water from "./3d/Water";
 import Lighting from "./Lighting";
+import Island from "./3d/Island";
+import { OrbitControls } from "@react-three/drei";
 
 function BaseCanvas() {
   return (
@@ -17,9 +18,10 @@ function BaseCanvas() {
         }}
       >
         <Lighting />
-        <CameraRig />
         <Sky />
-        <Water />
+        <Island />
+        {/* <CameraRig /> */}
+        <OrbitControls />
       </Canvas>
     </div>
   );

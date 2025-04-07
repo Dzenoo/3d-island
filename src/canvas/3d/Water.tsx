@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { extend, useFrame, useLoader } from "@react-three/fiber";
 import { shaderMaterial } from "@react-three/drei";
 
+import simplexNoise from "../shaders/includes/simplexNoise.glsl?raw";
 import waterVertexShader from "../shaders/water/water.vert?raw";
 import waterFragmentShader from "../shaders/water/water.frag?raw";
 
@@ -29,7 +30,7 @@ const WaterMaterial = shaderMaterial(
     uFresnelPower: 0.9,
     uEnvMap: null,
   },
-  waterVertexShader,
+  `${simplexNoise} ${waterVertexShader}`,
   waterFragmentShader
 );
 
