@@ -1,7 +1,46 @@
+import * as THREE from "three";
+import { useEffect, useRef } from "react";
 import { Clone, useGLTF } from "@react-three/drei";
+import { useFrame, useGraph } from "@react-three/fiber";
 
 function Palms() {
   const { scene } = useGLTF("/models/palm.glb");
+  const { materials } = useGraph(scene);
+  const uTime = useRef({ value: 0 });
+
+  useEffect(() => {
+    const leafMat = materials["Leafs"] as THREE.MeshStandardMaterial;
+
+    if (leafMat && !leafMat.userData._windInjected) {
+      leafMat.onBeforeCompile = (shader) => {
+        shader.uniforms.uTime = uTime.current;
+
+        shader.vertexShader = shader.vertexShader.replace(
+          `#include <common>`,
+          `
+            #include <common>
+            uniform float uTime;
+          `
+        );
+
+        shader.vertexShader = shader.vertexShader.replace(
+          `#include <begin_vertex>`,
+          `
+            vec3 transformed = vec3(position);
+            float wind = sin(position.y * 2.0 + uTime * 2.0) * 0.05;
+            transformed.xyz += wind;
+          `
+        );
+      };
+
+      leafMat.userData._windInjected = true;
+      leafMat.needsUpdate = true;
+    }
+  }, [materials]);
+
+  useFrame((_, delta) => {
+    uTime.current.value += delta;
+  });
 
   return (
     <>
@@ -22,7 +61,7 @@ function Palms() {
       <Clone
         object={scene}
         position={[-1.7, 0.5, -0.5]}
-        rotation={[0, 1.6, 0]}
+        rotation={[0, 1.0, 0]}
         scale={1}
         castShadow
       />

@@ -4,8 +4,8 @@ varying vec2 vUv;
 varying vec3 vPosition;
 
 void main() {
-    vec3 edgeColor = vec3(0.84, 0.74, 0.6);  
-    vec3 centerColor = vec3(0.96, 0.88, 0.7); 
+    vec3 edgeColor = vec3(0.749, 0.667, 0.451);
+    vec3 centerColor = vec3(1.0, 0.941, 0.612);
 
     float edgeDist = min(min(vUv.x, 1.0 - vUv.x), min(vUv.y, 1.0 - vUv.y));
 
