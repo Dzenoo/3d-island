@@ -1,11 +1,11 @@
-import Palm from "./Palm";
+import Palms from "./Palms";
 import Sand from "./Sand";
 import Water from "./Water";
 
 function Island() {
   return (
     <>
-      <Palm />
+      <Palms />
       <Sand />
       <Water />
     </>

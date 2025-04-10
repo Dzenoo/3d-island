@@ -10,6 +10,7 @@ function BaseCanvas() {
   return (
     <div className="h-full w-full absolute top-0 left-0 right-0 bottom-0">
       <Canvas
+        shadows={true}
         camera={{
           position: [-21.86, 9.34, -0.42],
           fov: 85,
