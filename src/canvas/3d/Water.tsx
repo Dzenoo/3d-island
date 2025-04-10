@@ -12,22 +12,21 @@ const WaterMaterial = shaderMaterial(
   {
     uTime: 0.0,
     uWavesElevation: 0.01,
-    uWavesFrequency: new THREE.Vector2(1.5, 0.5),
-    uWavesLacunarity: 1.5,
+    uWavesFrequency: new THREE.Vector2(0.8, 0.8),
+    uWavesLacunarity: 1.0,
     uWavesIterations: 5,
-    uWavesPersistence: 0.42,
-    uWavesSpeed: 0.7,
-
-    uOpacity: 0.85,
-    uTroughColor: new THREE.Color("#145374"),
-    uSurfaceColor: new THREE.Color("#71c7ec"),
-    uPeakColor: new THREE.Color("#b0e0e6"),
+    uWavesPersistence: 0.5,
+    uWavesSpeed: 0.8,
+    uOpacity: 0.75,
+    uTroughColor: new THREE.Color("#006ead"),
+    uSurfaceColor: new THREE.Color("#00d0ff"),
+    uPeakColor: new THREE.Color("#98d9ec"),
     uTroughThreshold: -0.08,
-    uTroughTransition: 0.15,
-    uPeakThreshold: 0.08,
-    uPeakTransition: 0.12,
-    uFresnelStrength: 1.3,
-    uFresnelPower: 0.9,
+    uTroughTransition: 0.18,
+    uPeakThreshold: 0.1,
+    uPeakTransition: 0.1,
+    uFresnelStrength: 0.6,
+    uFresnelPower: 1.7,
     uEnvMap: null,
   },
   `${simplexNoise} ${waterVertexShader}`,
@@ -40,13 +39,14 @@ extend({
 
 function Water() {
   const waterMaterialRef = useRef<THREE.ShaderMaterial | null>(null);
-  const hdrTexture = useLoader(RGBELoader, "/environment.hdr");
+  const hdrTexture = useLoader(RGBELoader, "/textures/environment.hdr");
 
   useFrame((state) => {
     if (waterMaterialRef.current) {
-      waterMaterialRef.current.uniforms.uTime.value =
-        state.clock.getElapsedTime();
-      waterMaterialRef.current.uniforms.uEnvMap.value = hdrTexture;
+      const mat = waterMaterialRef.current.uniforms;
+
+      mat.uTime.value = state.clock.getElapsedTime();
+      mat.uEnvMap.value = hdrTexture;
     }
   });
 
