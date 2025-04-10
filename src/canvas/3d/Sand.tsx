@@ -54,6 +54,7 @@ function Sand() {
         uNormal={normal}
         uRoughness={roughness}
         uAo={ao}
+        side={THREE.DoubleSide}
       />
     </mesh>
   );

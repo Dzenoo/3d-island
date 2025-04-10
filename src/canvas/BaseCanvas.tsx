@@ -4,7 +4,7 @@ import CameraRig from "./CameraRig";
 import Sky from "./3d/Sky";
 import Lighting from "./Lighting";
 import Island from "./3d/Island";
-import { OrbitControls } from "@react-three/drei";
+// import { OrbitControls } from "@react-three/drei";
 
 function BaseCanvas() {
   return (
@@ -20,8 +20,8 @@ function BaseCanvas() {
         <Lighting />
         <Sky />
         <Island />
-        {/* <CameraRig /> */}
-        <OrbitControls />
+        <CameraRig />
+        {/* <OrbitControls /> */}
       </Canvas>
     </div>
   );
