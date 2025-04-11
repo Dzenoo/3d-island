@@ -1,5 +1,9 @@
 import { Perf } from "r3f-perf";
 import { Canvas } from "@react-three/fiber";
+import {
+  EffectComposer,
+  BrightnessContrast,
+} from "@react-three/postprocessing";
 
 import CameraRig from "./CameraRig";
 import Sky from "./3d/Sky";
@@ -12,6 +16,7 @@ function BaseCanvas() {
     <div className="h-full w-full absolute top-0 left-0 right-0 bottom-0">
       <Canvas
         shadows={true}
+        gl={{ antialias: true }}
         camera={{
           position: [-21.86, 9.34, -0.42],
           fov: 85,
@@ -27,6 +32,11 @@ function BaseCanvas() {
         <Island />
 
         <CameraRig />
+
+        <EffectComposer>
+          <BrightnessContrast brightness={-0.05} contrast={0.01} />
+        </EffectComposer>
+
         {/* <OrbitControls /> */}
       </Canvas>
     </div>
