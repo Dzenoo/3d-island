@@ -1,3 +1,4 @@
+import { Perf } from "r3f-perf";
 import { Canvas } from "@react-three/fiber";
 
 import CameraRig from "./CameraRig";
@@ -18,9 +19,13 @@ function BaseCanvas() {
           far: 200,
         }}
       >
+        <Perf />
+
         <Lighting />
+
         <Sky />
         <Island />
+
         <CameraRig />
         {/* <OrbitControls /> */}
       </Canvas>
