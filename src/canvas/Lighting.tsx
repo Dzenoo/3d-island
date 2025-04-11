@@ -1,9 +1,6 @@
-import { BakeShadows } from "@react-three/drei";
-
 function Lighting() {
   return (
     <>
-      <BakeShadows />
       <ambientLight color="#ffffff" intensity={1.5} />
       <directionalLight
         color="#ffffff"
