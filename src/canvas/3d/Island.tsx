@@ -1,5 +1,6 @@
 import Bushes from "./Bushes";
 import Palms from "./Palms";
+import Rocks from "./Rocks";
 import Sand from "./Sand";
 import Treasure from "./Treasure";
 import Water from "./Water";
@@ -11,6 +12,7 @@ function Island() {
       <Palms />
       <Sand />
       <Bushes />
+      <Rocks />
       <Water />
     </>
   );
