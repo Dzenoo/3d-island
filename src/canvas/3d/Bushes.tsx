@@ -92,9 +92,9 @@ function Bush({
 function Bushes() {
   return (
     <>
-      <Bush position={[-10, 0.4, -7.5]} scale={4} />
-      <Bush position={[-3.5, 0.4, 6.6]} scale={3} />
-      <Bush position={[-2, 0.4, -4.5]} scale={2.5} />
+      <Bush position={[-10, 0.9, -7.5]} scale={4} />
+      <Bush position={[-3.5, 1.8, 6.6]} scale={3} />
+      <Bush position={[-2, 1.5, -4.5]} scale={2.5} />
     </>
   );
 }

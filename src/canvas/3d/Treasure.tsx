@@ -6,7 +6,7 @@ function Treasure() {
   return (
     <primitive
       object={scene}
-      position={[-3.15, 0.37, -4.32]}
+      position={[-3.15, 2.3, -4.32]}
       rotation={[-0.0, 6.7, 6.1]}
     />
   );

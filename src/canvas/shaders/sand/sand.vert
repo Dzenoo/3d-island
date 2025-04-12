@@ -19,6 +19,12 @@ void main() {
     float dropAmount = 0.8;
     modelPosition.y -= falloff * dropAmount;
 
+    vec2 center = vec2(0.5, 0.5);
+    float distToCenter = distance(vUv, center);
+    float centerFalloff = 1.0 - smoothstep(0.0, 0.5, distToCenter);
+    float raiseAmount = 2.5;
+    modelPosition.y += centerFalloff * raiseAmount;
+
     float delta = 0.1;
     float displaceX = snoise(coord + vec2(delta, 0.0)) * 0.25;
     float displaceZ = snoise(coord + vec2(0.0, delta)) * 0.25;
