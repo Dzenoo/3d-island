@@ -4,7 +4,7 @@ function Lighting() {
       <ambientLight color="#ffffff" intensity={1.5} />
       <directionalLight
         color="#ffffff"
-        intensity={7.5}
+        intensity={6.5}
         position={[-12, 10, 4]}
         castShadow={true}
         shadow-mapSize={[1024, 1024]}

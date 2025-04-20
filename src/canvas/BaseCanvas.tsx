@@ -9,7 +9,6 @@ import CameraRig from "./CameraRig";
 import Sky from "./3d/Sky";
 import Lighting from "./Lighting";
 import Island from "./3d/Island";
-// import { OrbitControls } from "@react-three/drei";
 
 function BaseCanvas() {
   return (
@@ -24,7 +23,7 @@ function BaseCanvas() {
           far: 200,
         }}
       >
-        <Perf />
+        {/* <Perf /> */}
 
         <Lighting />
 
@@ -36,8 +35,6 @@ function BaseCanvas() {
         <EffectComposer>
           <BrightnessContrast brightness={-0.05} contrast={0.01} />
         </EffectComposer>
-
-        {/* <OrbitControls /> */}
       </Canvas>
     </div>
   );
